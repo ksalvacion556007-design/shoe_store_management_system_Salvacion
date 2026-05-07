@@ -24,8 +24,6 @@ class PaymentController extends Controller
         ]);
 
         $order = Order::findOrFail($request->order_id);
-
-        // TOTAL PAID SO FAR (IMPORTANT FIX)
         $totalPaid = Payment::where('order_id', $order->id)
             ->sum('amount_paid');
 
@@ -50,8 +48,6 @@ class PaymentController extends Controller
     {
         $oldPayment = Payment::findOrFail($id);
         $order = Order::findOrFail($oldPayment->order_id);
-
-        // ADD NEW PAYMENT INSTEAD OF EDITING
         $newTotalPaid = $oldPayment->amount_paid + $request->amount_paid;
 
         $remaining = $order->total_cost - $newTotalPaid;
@@ -63,7 +59,6 @@ class PaymentController extends Controller
             $status = 'Partial';
         }
 
-        // CREATE NEW ROW (IMPORTANT CHANGE)
         Payment::create([
             'order_id' => $order->id,
             'amount_paid' => $request->amount_paid,

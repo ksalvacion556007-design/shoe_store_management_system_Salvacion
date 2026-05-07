@@ -121,7 +121,6 @@
 
 <div class="wrapper">
 
-    <!-- SIDEBAR -->
     <div class="sidebar">
         <h2>👟 Shoe Store</h2>
 
@@ -145,7 +144,6 @@
         </div>
     </div>
 
-    <!-- CONTENT -->
     <div class="content">
 
         <div class="header">
@@ -156,7 +154,6 @@
             </button>
         </div>
 
-        <!-- TABLE -->
         <table>
             <tr>
                 <th>Product</th>
@@ -220,7 +217,6 @@
     </div>
 </div>
 
-<!-- ================= ADD MODAL ================= -->
 <div class="modal" id="addModal">
 
     <div class="modal-content">
@@ -277,7 +273,6 @@
     </div>
 </div>
 
-<!-- ================= EDIT MODAL ================= -->
 <div class="modal" id="editModal">
 
     <div class="modal-content">
@@ -335,42 +330,39 @@
 </x-app-layout>
 
 <script>
-/* ADD MODAL */
-function openAddModal() {
-    document.getElementById('addModal').style.display = 'flex';
-}
-
-function closeAddModal() {
-    document.getElementById('addModal').style.display = 'none';
-}
-
-/* EDIT MODAL */
-function openEditModal(id, name, brand, category, size, color, stock, price) {
-
-    document.getElementById('editModal').style.display = 'flex';
-
-    document.getElementById('edit_product_name').value = name;
-    document.getElementById('edit_brand').value = brand;
-    document.getElementById('edit_category').value = category;
-    document.getElementById('edit_size').value = size.trim();
-    document.getElementById('edit_size').dispatchEvent(new Event('change'));
-    document.getElementById('edit_color').value = color;
-    document.getElementById('edit_stock').value = stock;
-    document.getElementById('edit_price').value = price;
-
-    document.getElementById('editForm').action = "/shoe-products/" + id;
-}
-
-function closeEditModal() {
-    document.getElementById('editModal').style.display = 'none';
-}
-
-/* CLOSE ON OUTSIDE CLICK */
-window.onclick = function(e) {
-    if (e.target.classList.contains('modal')) {
-        e.target.style.display = 'none';
+    function openAddModal() {
+        document.getElementById('addModal').style.display = 'flex';
     }
-}
+
+    function closeAddModal() {
+        document.getElementById('addModal').style.display = 'none';
+    }
+
+    function openEditModal(id, name, brand, category, size, color, stock, price) {
+
+        document.getElementById('editModal').style.display = 'flex';
+
+        document.getElementById('edit_product_name').value = name;
+        document.getElementById('edit_brand').value = brand;
+        document.getElementById('edit_category').value = category;
+        document.getElementById('edit_size').value = size.trim();
+        document.getElementById('edit_size').dispatchEvent(new Event('change'));
+        document.getElementById('edit_color').value = color;
+        document.getElementById('edit_stock').value = stock;
+        document.getElementById('edit_price').value = price;
+
+        document.getElementById('editForm').action = "/shoe-products/" + id;
+    }
+
+    function closeEditModal() {
+        document.getElementById('editModal').style.display = 'none';
+    }
+
+    window.onclick = function(e) {
+        if (e.target.classList.contains('modal')) {
+            e.target.style.display = 'none';
+        }
+    }
 </script>
 
 </body>

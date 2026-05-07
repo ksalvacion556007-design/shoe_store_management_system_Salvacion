@@ -102,7 +102,6 @@
 
 <div class="wrapper">
 
-    <!-- SIDEBAR -->
     <div class="sidebar">
         <h2>👟 Shoe Store</h2>
 
@@ -126,7 +125,6 @@
         </div>
     </div>
 
-    <!-- CONTENT -->
     <div class="content">
 
         <div class="header">
@@ -137,7 +135,6 @@
             </button>
         </div>
 
-        <!-- TABLE -->
         <table>
             <tr>
                 <th>Customer</th>
@@ -187,7 +184,6 @@
     </div>
 </div>
 
-<!-- ================= ADD MODAL ================= -->
 <div class="modal" id="addModal">
     <div class="modal-content">
 
@@ -198,10 +194,8 @@
         <form method="POST" action="{{ route('orders.store') }}">
             @csrf
 
-            <!-- CUSTOMER INPUT -->
             <input type="text" name="customer_name" placeholder="Customer Name" required>
 
-            <!-- PRODUCT -->
             <select name="shoe_product_id" required>
                 <option value="">Select Product</option>
                 @foreach($shoeProducts as $product)
@@ -211,10 +205,8 @@
                 @endforeach
             </select>
 
-            <!-- QUANTITY -->
             <input type="number" name="quantity" placeholder="Quantity" required>
 
-            <!-- DEFAULT STATUS (HIDDEN) -->
             <input type="hidden" name="status" value="Pending">
 
             <button class="btn btn-add">Save Order</button>
@@ -224,7 +216,6 @@
     </div>
 </div>
 
-<!-- ================= EDIT MODAL ================= -->
 <div class="modal" id="editModal">
     <div class="modal-content">
 
@@ -263,35 +254,35 @@
 </x-app-layout>
 
 <script>
-function openAddModal() {
-    document.getElementById('addModal').style.display = 'flex';
-}
-
-function closeAddModal() {
-    document.getElementById('addModal').style.display = 'none';
-}
-
-function openEditModal(id, customer, product, qty, status) {
-    document.getElementById('editModal').style.display = 'flex';
-
-    document.getElementById('edit_customer').value = customer;
-    document.getElementById('edit_product').value = product;
-    document.getElementById('edit_quantity').value = qty;
-    document.getElementById('edit_status').value = status;
-
-    document.getElementById('editForm').action = "/orders/" + id;
-}
-
-function closeEditModal() {
-    document.getElementById('editModal').style.display = 'none';
-    document.getElementById('editForm').reset();
-}
-
-window.onclick = function(e) {
-    if (e.target.classList.contains('modal')) {
-        e.target.style.display = 'none';
+    function openAddModal() {
+        document.getElementById('addModal').style.display = 'flex';
     }
-}
+
+    function closeAddModal() {
+        document.getElementById('addModal').style.display = 'none';
+    }
+
+    function openEditModal(id, customer, product, qty, status) {
+        document.getElementById('editModal').style.display = 'flex';
+
+        document.getElementById('edit_customer').value = customer;
+        document.getElementById('edit_product').value = product;
+        document.getElementById('edit_quantity').value = qty;
+        document.getElementById('edit_status').value = status;
+
+        document.getElementById('editForm').action = "/orders/" + id;
+    }
+
+    function closeEditModal() {
+        document.getElementById('editModal').style.display = 'none';
+        document.getElementById('editForm').reset();
+    }
+
+    window.onclick = function(e) {
+        if (e.target.classList.contains('modal')) {
+            e.target.style.display = 'none';
+        }
+    }
 </script>
 
 </body>

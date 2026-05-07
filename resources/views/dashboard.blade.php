@@ -69,7 +69,6 @@
 
 <div class="wrapper">
 
-    <!-- SIDEBAR -->
     <div class="sidebar">
         <h2>👟 Shoe Store</h2>
 
@@ -94,8 +93,6 @@
     </div>
 
 
-
-    <!-- MAIN CONTENT -->
     <div class="content">
 
         <div class="header">

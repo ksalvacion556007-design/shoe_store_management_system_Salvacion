@@ -108,7 +108,6 @@
 
 <div class="wrapper">
 
-    <!-- SIDEBAR -->
     <div class="sidebar">
         <h2>👟 Shoe Store</h2>
 
@@ -132,7 +131,6 @@
         </div>
     </div>
 
-    <!-- CONTENT -->
     <div class="content">
 
         <div class="header">
@@ -195,7 +193,6 @@
     </div>
 </div>
 
-<!-- ================= ADD ================= -->
 <div class="modal" id="addModal">
     <div class="modal-content">
 
@@ -226,7 +223,6 @@
     </div>
 </div>
 
-<!-- ================= EDIT ================= -->
 <div class="modal" id="editModal">
     <div class="modal-content">
 
@@ -238,7 +234,6 @@
             @csrf
             @method('PUT')
 
-            <!-- READ ONLY INFO -->
             <div class="readonly-box">
                 <b>Customer:</b> <span id="edit_customer"></span>
             </div>
@@ -251,7 +246,6 @@
                 <b>Remaining:</b> ₱<span id="old_balance"></span>
             </div>
 
-            <!-- NEW INPUT -->
             <input type="number"
                    step="0.01"
                    name="amount_paid"
@@ -269,29 +263,29 @@
 </x-app-layout>
 
 <script>
-function openAddModal() {
-    document.getElementById('addModal').style.display = 'flex';
-}
+    function openAddModal() {
+        document.getElementById('addModal').style.display = 'flex';
+    }
 
-function closeAddModal() {
-    document.getElementById('addModal').style.display = 'none';
-}
+    function closeAddModal() {
+        document.getElementById('addModal').style.display = 'none';
+    }
 
-function openEditModal(id, customer, oldAmount, oldBalance) {
-    document.getElementById('editModal').style.display = 'flex';
+    function openEditModal(id, customer, oldAmount, oldBalance) {
+        document.getElementById('editModal').style.display = 'flex';
 
-    document.getElementById('edit_customer').innerText = customer;
-    document.getElementById('old_amount').innerText = oldAmount;
-    document.getElementById('old_balance').innerText = oldBalance;
+        document.getElementById('edit_customer').innerText = customer;
+        document.getElementById('old_amount').innerText = oldAmount;
+        document.getElementById('old_balance').innerText = oldBalance;
 
-    document.getElementById('new_amount').value = "";
+        document.getElementById('new_amount').value = "";
 
-    document.getElementById('editForm').action = "/payments/" + id;
-}
+        document.getElementById('editForm').action = "/payments/" + id;
+    }
 
-function closeEditModal() {
-    document.getElementById('editModal').style.display = 'none';
-}
+    function closeEditModal() {
+        document.getElementById('editModal').style.display = 'none';
+    }
 </script>
 
 </body>

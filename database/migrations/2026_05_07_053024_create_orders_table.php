@@ -10,12 +10,9 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-
-            // CUSTOMER INPUT (NOT USER TABLE)
             $table->string('customer_name');
             $table->string('customer_phone')->nullable();
 
-            // PRODUCT
             $table->foreignId('shoe_product_id')
                 ->constrained()
                 ->onDelete('cascade');
